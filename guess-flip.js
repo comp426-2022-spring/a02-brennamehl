@@ -3,8 +3,12 @@ import minimist from "minimist"
 const args = minimist(process.argv.slice(2))
 args['call']
 const guess = args.call
-if(!(guess === 'heads' || guess === 'tails')){
+if(guess == null){
     console.error("Error: no input")
+}
+
+if(!(guess === 'heads' || guess === 'tails')){
+    console.error("Usage: node guess-flip --call=[heads|tails]")
 }
 else{
     console.log(flipACoin(guess))
