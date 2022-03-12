@@ -64,14 +64,25 @@ function coinFlips(flips) {
  */
 
 function countFlips(array) {
-  let countObject = {heads: 0, tails: 0}
+  let heads = 0
+  let tails = 0
+  let countObject
   for(let i = 0; i<array.length; i++){
     if(array[i]==='heads'){
-      countObject.heads++
+      heads++
     }
     else{
-      countObject.tails++
+      tails++
     }
+  }
+  if(heads>0 && tails>0){
+      countObject = {heads: heads, tails: tails}
+  }
+  else if(tails==0){
+       countObject = {heads: heads}
+  }
+  else{
+      countObject = {tails: tails}
   }
   return countObject
 }
